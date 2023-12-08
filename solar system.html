@@ -16,18 +16,25 @@
                     <img class="logo" src="logo.png" alt="Instagram Logo">
                 </a>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="https://www.nasa.gov" target="_blank">NASA</a></li>
-                    <li><a href="#">INFOS</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="solar system.html"><button class="button">HOME</button></a></li>
+                    <li><a href="https://www.nasa.gov"><button class="button">NASA</button></a></li>
+                    <li><a href="https://eyes.nasa.gov/apps/solar-system/#/home"><button class="button">3D SIMULATION</button></a></li>
+                    <li><a href="#"><button class="button">CONTACT</button></a></li>
                 </ul>
             </div>
             <div class="content">
                 <h1>EXPLORE THE SOLAR SYSTEM</h1>
                 <div>
-                    <button type="button">EXPLORE</button>
+                    <button type="button" class="btn">
+                        <a href="#" onclick="explore()">EXPLORE</a>
+                      </button>                    
                 </div>
             </div>
         </div>
+        <script>
+            function explore() {
+                window.location.href = "explore.html";
+            }
+        </script>
     </body>
 </html>
