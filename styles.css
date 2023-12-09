@@ -24,12 +24,12 @@ p {
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 2rem;
   font-family: SpaceX;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 h4 {
@@ -245,26 +245,6 @@ details ul li:hover .fa-shuttle-space {
 .content {
   margin-top: 1.5em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.learn-more-btn {
-  background: transparent;
-  border: 0.15em solid #080527;
-  font-size: 1.25rem;
-  color: #fff;
-  padding: 0.5em 1em;
-  margin-top: 1em;
-  border-radius: 1.875rem;
-  font-weight: 700;
-  box-shadow: 300px 0 300px #080527 inset;
-  transition: all 500ms ease-in-out;
-  cursor: pointer;
-}
-
-.learn-more-btn:hover {
-  border: 0.15em solid #ffcc00;
-  box-shadow: 0 0 0 #080527 inset;
-  color: #ffcc00;
 }
 
 .stage {
