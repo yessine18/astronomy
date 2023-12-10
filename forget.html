@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In To Space</title>
+  <link rel="stylesheet" href="login.css">
+  <script>
+    function redirectToExploit() {
+      var sum = document.getElementById("sum").value;
+      if (sum !=="44"|| sum==="") {
+        alert("TI MABHMEK WA47A 44");
+        return;
+      }
+
+      window.location.href = "password.html";
+    }
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <form action="javascript:void(0);"> <h2>captcha</h2>
+        <div class="input-field">
+        <input type="text" id="sum" required>
+        <label for="sum">calculate the sum:23+21</label>
+      </div>
+      <button type="submit" onclick="redirectToExploit()">Submit</button> <div class="register">
+        <p>Remembered password? <a href="login.html">Sign In</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
