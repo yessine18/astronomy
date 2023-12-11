@@ -71,7 +71,7 @@ a:-webkit-any-link {
     cursor: pointer;
     z-index: 1;
     font-weight: 240;
-    font-size: 15px;
+    font-size: 17px;
     font-family: Azonix;
     text-transform: uppercase;
     color: var(--color);
@@ -204,7 +204,7 @@ a:-webkit-any-link {
 .btn a{
   text-decoration: wavy;
   text-transform: uppercase;
-  color: rgb(255, 255, 255);
+  color: gold;
   font-weight: 400;
   font-size: 20px;
   cursor: pointer;
