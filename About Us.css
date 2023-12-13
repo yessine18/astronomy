@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
-  font-family:SpaceX;
+  font-family:Azonix;
   flex-wrap: wrap;
   justify-content: center;
   height: 100vh;
@@ -97,8 +97,8 @@ body {
 .title {
   color: gold;
   font-family: azonix;
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 10px;
+  font-weight: 100;
   margin-top: 4px;
 }
 .navbar{
