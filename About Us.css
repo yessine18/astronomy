@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   display: flex;
-  font-family:Azonix;
+  font-family:SpaceX;
   flex-wrap: wrap;
   justify-content: center;
   height: 100vh;
@@ -88,17 +88,17 @@ body {
 }
 .name {
   color: gold;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  margin-top: 16px;
+  margin-top: 20px;
   text-align: center;
+  font-stretch:ultra-condensed;
 }
 .title {
   color: gold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: azonix;
   font-size: 14px;
   font-weight: 300;
-  font-style: italic;
   margin-top: 4px;
 }
 .navbar{
