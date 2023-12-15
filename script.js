@@ -1,12 +1,10 @@
 var slideIndex = 1;
 showSlides(slideIndex);
 
-// Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Thumbnail image controls
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
@@ -32,7 +30,6 @@ function viewFacts(id){
   
    currentPlanet = document.getElementById(id);
 
-  //  viewing planet details
    document.getElementById("planetData").style.display = "block";
 
    if(previousPlanet){
@@ -49,12 +46,12 @@ function viewFacts(id){
 
 function scrollAnimation(planet){
 
-        // intersection observer - onscroll animation
+
 
 
         const facts = planet.querySelectorAll(".facts");
 
-        // animation on facts
+
 
         const appearOptions = {
         threshold:0.5,
@@ -84,7 +81,7 @@ function scrollAnimation(planet){
 
 
 
-  // animation on navbar
+
 
   const navbar = document.querySelector("nav");
   const header = document.querySelector("header");
@@ -112,7 +109,7 @@ function scrollAnimation(planet){
   linksObserver.observe(header);
 
 
-  // close side panel
+
   let sidePanel = document.getElementById("solarSideCard");
 
   function closeSidePanel(){  
@@ -120,7 +117,7 @@ function scrollAnimation(planet){
 
   }
 
-  // open side panel
+
   let infoPanelPrevious, infoPanelCurrent;
 
   infoPanelPrevious = document.getElementById('sideInfoSun');
@@ -136,19 +133,19 @@ function scrollAnimation(planet){
 
   }
 
-  // move to planet carousel 
+
   function  moveToPlanetCarousel(){
     document.getElementById('planet-carousel').scrollIntoView();     
   }
 
-  // reset dropdown
+
 
   function resetDropdown(){
    
       document.querySelector("details").removeAttribute('open'); 
   }
 
-  // mobile menu
+
 
   let hamburgerMenu = document.getElementById('hamburgerMenu');
   let mobileMenu = document.getElementById('mobileMenu');
@@ -167,7 +164,7 @@ function scrollAnimation(planet){
 
   }
 
-  // reset mobile menu
+
   function resetMobileMenu(){
  
     if(mobileMenu.classList.contains("active")){
