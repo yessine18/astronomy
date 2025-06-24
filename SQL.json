@@ -1,0 +1,250 @@
+{
+  "name": "SQL",
+  "nodes": [
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "ee785ab8-10e9-49cb-8378-87866790ce3c",
+      "name": "Window Buffer Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        700,
+        840
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {},
+      "id": "13124edd-db6b-4e2b-92e6-5a95cfd8c3a8",
+      "name": "When clicking \"Test workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        60,
+        220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "url": "https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip",
+        "options": {}
+      },
+      "id": "fef3d22d-4989-4619-b9f0-bfb272bda135",
+      "name": "Get chinook.zip example",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        260,
+        220
+      ],
+      "typeVersion": 4.2
+    },
+    {
+      "parameters": {},
+      "id": "0abc1996-1fc7-4866-9564-4ebf55f5ac54",
+      "name": "Extract zip file",
+      "type": "n8n-nodes-base.compression",
+      "position": [
+        460,
+        220
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "./chinook.db",
+        "dataPropertyName": "file_0",
+        "options": {}
+      },
+      "id": "ce522318-680c-4394-b50e-6cdaacc3b47b",
+      "name": "Save chinook.db locally",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        660,
+        220
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fileSelector": "./chinook.db",
+        "options": {}
+      },
+      "id": "2319c63c-68b5-4dc8-8deb-2fda9e147acf",
+      "name": "Load local chinook.db",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        180,
+        660
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={{ $('Chat Trigger').item.json }}\n",
+        "options": {
+          "includeBinary": true
+        }
+      },
+      "id": "b3eeb769-2069-40aa-9dde-2d8d543fc49f",
+      "name": "Combine chat input with the binary",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        380,
+        660
+      ],
+      "typeVersion": 3.3
+    },
+    {
+      "parameters": {
+        "agent": "sqlAgent",
+        "dataSource": "sqlite",
+        "options": {}
+      },
+      "id": "77417fa8-2bbf-48d2-b669-4e9f20800e11",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        580,
+        660
+      ],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {},
+      "id": "4ef1f7c1-899f-4888-8361-e1c6d4d594c2",
+      "name": "Chat Trigger",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        -20,
+        660
+      ],
+      "webhookId": "fb565f08-a459-4ff9-8249-1ede58599660",
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-1.5-flash-8b-latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        540,
+        840
+      ],
+      "id": "2c4cd733-504e-41d9-bf5f-a4506d248163",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "gAYUFtiYdRXhvv8V",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Chat Trigger": {
+      "main": [
+        [
+          {
+            "node": "Load local chinook.db",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract zip file": {
+      "main": [
+        [
+          {
+            "node": "Save chinook.db locally",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load local chinook.db": {
+      "main": [
+        [
+          {
+            "node": "Combine chat input with the binary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get chinook.zip example": {
+      "main": [
+        [
+          {
+            "node": "Extract zip file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Test workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Get chinook.zip example",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine chat input with the binary": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "342931c7-b70e-46f4-ad14-6a3ef11bbb6b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "46da90226af2cd62f2c4030585aa3ec656e30f54c79d778d6ad6d1f5dfd13a55"
+  },
+  "id": "R1MwgtOGq9rXt41W",
+  "tags": []
+}
